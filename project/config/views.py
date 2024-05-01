@@ -1,9 +1,10 @@
 from django.http import HttpResponse
+from django.template import Template, Context
 
 def test(request):
-  return HttpResponse('<p style="color: red; font-size: 24px;">Hello, World!</p>')
-
-def nombre(request, nombre: str, apellido: str):
-  nombre = nombre.capitalize()
-  apellido = apellido.capitalize()
-  return HttpResponse(f'<p style="color: red; font-size: 24px;">{nombre} {apellido}</p>')
+  html = open('./templates/template.html', encoding='utf-8')
+  template = Template(html.read())
+  html.close()
+  context = Context({ "saludo": '¡Hola!' })
+  document = template.render(context)
+  return HttpResponse(document)
