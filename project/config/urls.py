@@ -1,9 +1,9 @@
 from django.contrib import admin
-from django.urls import path
-from . import views
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', views.test),
-    path('nombre/<str:nombre>/<str:apellido>/', views.nombre),
+    path('', include('core.urls')),
+    path('cliente/', include('cliente.urls')),
+    path('producto/', include('producto.urls')),
 ]

@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+  Clientes
+{% endblock titulo %}
+
+{% block contenido %}
+  {% for cliente in clientes %}
+    <p style="margin: 2px;">Usuario: {{ cliente.user }}</p>
+    <p style="margin: 2px;">Apellido y nombre: {{ cliente.surname }}, {{ cliente.name }}</p>
+    <p style="margin: 2px;">Email: {{ cliente.email }}</p>
+  {% endfor %}
+{% endblock contenido %}

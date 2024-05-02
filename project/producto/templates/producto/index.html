@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+  Productos
+{% endblock titulo %}
+
+{% block contenido %}
+  {% for producto in productos %}
+    <p style="margin: 2px;">{{producto.name}} | {{producto.category}} | U$S{{producto.price}}</p>
+  {% endfor %}
+{% endblock contenido %}
